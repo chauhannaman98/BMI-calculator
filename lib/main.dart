@@ -13,7 +13,7 @@ class BMICalculator extends StatelessWidget {
           scaffoldBackgroundColor: Color(0xFF24292E),
           accentColor: Colors.purple,
           textTheme: TextTheme(
-            body1: TextStyle(color: Colors.white),
+            bodyText2: TextStyle(color: Colors.white),
           ),
       ),
       home: InputPage(),
