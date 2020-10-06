@@ -20,27 +20,7 @@ class InputPage extends StatefulWidget {
 
 class _InputPageState extends State<InputPage> {
 
-  Color maleCardColor = inactiveCardColour;
-  Color femaleCardColor = inactiveCardColour;
-
-  void updateColor(Gender selectedGender)  {
-    if(selectedGender == Gender.male) {
-      if(maleCardColor == inactiveCardColour) {
-        maleCardColor = activeCardColour;
-        femaleCardColor = inactiveCardColour;
-      } else  {
-        maleCardColor = inactiveCardColour;
-      }
-    }
-    if(selectedGender == Gender.female) {
-      if(femaleCardColor == inactiveCardColour) {
-        femaleCardColor = activeCardColour;
-        maleCardColor = inactiveCardColour;
-      } else  {
-        femaleCardColor = inactiveCardColour;
-      }
-    }
-  }
+  Gender selectedGender;
 
   @override
   Widget build(BuildContext context) {
@@ -58,11 +38,11 @@ class _InputPageState extends State<InputPage> {
                 child: GestureDetector(
                   onTap: () {
                     setState(() {
-                      updateColor(Gender.male);
+                      selectedGender = Gender.male;
                     });
                   },
                   child: ReusableCard(
-                    color: maleCardColor,
+                    color: selectedGender==Gender.male?activeCardColour:inactiveCardColour,
                     cardChild: GenderCard(
                       genderIcon: FontAwesomeIcons.mars,
                       genderLabel: 'MALE',
@@ -74,11 +54,11 @@ class _InputPageState extends State<InputPage> {
                 child: GestureDetector(
                   onTap: () {
                     setState(() {
-                      updateColor(Gender.female);
+                      selectedGender = Gender.female;
                     });
                   },
                   child: ReusableCard(
-                    color: femaleCardColor,
+                    color: selectedGender==Gender.female?activeCardColour:inactiveCardColour,
                     cardChild: GenderCard(
                       genderIcon: FontAwesomeIcons.venus,
                       genderLabel: 'FEMALE',
