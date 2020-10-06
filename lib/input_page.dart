@@ -1,12 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'reusable_card.dart';
 import 'icon_content.dart';
-
-const bottomContainerHeight = 80.0;
-const activeCardColour = Color(0xFF2C313A);
-const inactiveCardColour = Color(0xFF20242A);
-const bottomContainerColor = Color(0xFFEB1555);
+import 'constants.dart';
 
 enum Gender {
   male,
@@ -42,8 +39,8 @@ class _InputPageState extends State<InputPage> {
                     });
                   },
                   color: selectedGender==Gender.male
-                      ?activeCardColour
-                      :inactiveCardColour,
+                      ?kActiveCardColour
+                      :kInactiveCardColour,
                   cardChild: GenderCard(
                     genderIcon: FontAwesomeIcons.mars,
                     genderLabel: 'MALE',
@@ -58,8 +55,8 @@ class _InputPageState extends State<InputPage> {
                     });
                   },
                   color: selectedGender==Gender.female
-                      ?activeCardColour
-                      :inactiveCardColour,
+                      ?kActiveCardColour
+                      :kInactiveCardColour,
                   cardChild: GenderCard(
                     genderIcon: FontAwesomeIcons.venus,
                     genderLabel: 'FEMALE',
@@ -77,18 +74,18 @@ class _InputPageState extends State<InputPage> {
             children: <Widget>[
               Expanded(
                 child: ReusableCard(
-                    color: inactiveCardColour
+                    color: kInactiveCardColour
                 ),
               ),
               Expanded(
                 child: ReusableCard(
-                    color: inactiveCardColour
+                    color: kInactiveCardColour
                 ),
               ),
             ],
           )),
           Container(
-            color: bottomContainerColor,
+            color: kBottomContainerColor,
             margin: EdgeInsets.only(top: 10.0),
             width: double.infinity,
             height: 80.0,
