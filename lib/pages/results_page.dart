@@ -6,10 +6,16 @@ import 'package:bmi_calculator/components/bottom_button.dart';
 
 class ResultsPage extends StatelessWidget {
 
-  ResultsPage({@required this.bmiResult, this.resultText, this.interpretation});
+  ResultsPage({@required
+    this.bmiResult,
+    this.resultText,
+    this.interpretation,
+    this.textColor
+  });
   final String bmiResult;
   final String resultText;
   final String interpretation;
+  final Color textColor;
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +48,11 @@ class ResultsPage extends StatelessWidget {
                   Center(
                     child: Text(
                       resultText.toUpperCase(),
-                      style: kResultTextStyle,
+                      style: TextStyle(
+                        color: textColor,
+                        fontSize: 22.0,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                   Center(
